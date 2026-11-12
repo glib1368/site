@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurniCraft | Салон Сучасних Меблів Преміум-Якості</title>
+    <meta name="description" content="Дизайнерські меблі преміум-якості для дому та офісу. Швидка доставка, гарантія 5 років та виготовлення за індивідуальними розмірами.">
+    
+    <!-- Open Graph / SEO Social -->
+    <meta property="og:title" content="FurniCraft | Салон Сучасних Меблів">
+    <meta property="og:description" content="Створіть затишок, про який завжди мріяли. Меблі преміум-якості.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo" aria-label="FurniCraft Головна">
+                <i class="fa-solid fa-couch" aria-hidden="true"></i> Furni<span>Craft</span>
+            </a>
+            <nav class="nav-links" aria-label="Головне меню">
+                <a href="#home" class="active">Головна</a>
+                <a href="#catalog">Каталог</a>
+                <a href="#advantages">Переваги</a>
+                <a href="#reviews">Відгуки</a>
+                <a href="#contacts">Контакти</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                    <input type="text" id="searchInput" placeholder="Пошук меблів..." aria-label="Пошук меблів">
+                </div>
+                <button class="icon-btn" id="wishlistBtn" title="Обране" aria-label="Переглянути обране">
+                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    <span class="badge" id="wishlistBadge">0</span>
+                </button>
+                <button class="icon-btn cart-btn" id="cartBtn" title="Кошик" aria-label="Переглянути кошик">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    <span class="badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="tagline">Колекція 2026 року</span>
+            <h1>Створіть Затишок, Про Який Завжди Мріяли</h1>
+            <p>Дизайнерські меблі преміум-якості для вашого дому та офісу. Безкоштовна доставка та 5 років гарантії.</p>
+            <div class="hero-buttons">
+                <a href="#catalog" class="btn btn-primary">Переглянути Каталог</a>
+                <a href="#advantages" class="btn btn-secondary">Наші Переваги</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="catalog-section" id="catalog">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наш Каталог Меблів</h2>
+                <p>Обирайте серед найкращих моделей стиль та комфорт для кожної кімнати</p>
+            </div>
+
+            <div class="controls-wrapper">
+                <div class="category-filters" id="categoryFilters" role="tablist" aria-label="Категорії меблів">
+                    <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">Всі меблі</button>
+                    <button class="filter-btn" data-category="sofas" role="tab" aria-selected="false">Дивани</button>
+                    <button class="filter-btn" data-category="chairs" role="tab" aria-selected="false">Крісла</button>
+                    <button class="filter-btn" data-category="tables" role="tab" aria-selected="false">Столи</button>
+                    <button class="filter-btn" data-category="beds" role="tab" aria-selected="false">Ліжка</button>
+                    <button class="filter-btn" data-category="cabinets" role="tab" aria-selected="false">Шафи</button>
+                </div>
+                <div class="sort-box">
+                    <label for="sortSelect" class="visually-hidden">Сортування</label>
+                    <select id="sortSelect" class="form-select form-select-sm" aria-label="Сортування товарів">
+                        <option value="default">За замовчуванням</option>
+                        <option value="price-asc">Ціна: від найдешевшої</option>
+                        <option value="price-desc">Ціна: від найдорожчої</option>
+                        <option value="rating">За рейтингом</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid" aria-live="polite">
+                <!-- Products dynamically rendered by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Чому обирають FurniCraft</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="adv-card">
+                    <div class="adv-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+                    <h3>Швидка Доставка</h3>
+                    <p>Безкоштовна доставка по всій Україні при замовленні від 15 000 грн.</p>
+                </div>
+                <div class="adv-card">
+                    <div class="adv-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                    <h3>Гарантія 5 Років</h3>
+                    <p>Використовуємо лише екологічні матеріали та надійну фурнітуру.</p>
+                </div>
+                <div class="adv-card">
+                    <div class="adv-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+                    <h3>Індивідуальний Дизайн</h3>
+                    <p>Виготовлення меблів за вашими розмірами та побажаннями.</p>
+                </div>
+                <div class="adv-card">
+                    <div class="adv-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+                    <h3>Підтримка 24/7</h3>
+                    <p>Консультація дизайнерів та менеджерів у будь-який зручний час.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Відгуки Наших Клієнтів</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars" aria-label="Оцінка 5 з 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Замовляли диван 'Сканди' у вітальню. Якість тканини перевершила очікування! Доставили швидко та допомогли зі збіркою."</p>
+                    <div class="user-info">
+                        <strong>Олена Коваленко</strong>
+                        <span>м. Київ</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars" aria-label="Оцінка 5 з 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Обідній стіл з масиву дуба - це просто витвір мистецтва. Дуже приємний на дотик і чудово вписався в наш інтер'єр."</p>
+                    <div class="user-info">
+                        <strong>Максим Бондаренко</strong>
+                        <span>м. Дніпро</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars" aria-label="Оцінка 5 з 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p>"Чудовий сервіс! Менеджер допоміг обрати ідеальний колір тканини для крісла. Обов'язково повернуся ще."</p>
+                    <div class="user-info">
+                        <strong>Анна Шевченко</strong>
+                        <span>м. Львів</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" aria-label="FurniCraft Головна">
+                    <i class="fa-solid fa-couch" aria-hidden="true"></i> Furni<span>Craft</span>
+                </a>
+                <p>Ваш надійний партнер у створенні затишного та стильного інтер'єру.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="#catalog">Дивани</a></li>
+                    <li><a href="#catalog">Крісла</a></li>
+                    <li><a href="#catalog">Обідні столи</a></li>
+                    <li><a href="#catalog">Двоспальні ліжка</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> м. Київ, вул. Хрещатик, 24</p>
+                <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +380 (44) 123-45-67</p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> info@furnicraft.ua</p>
+            </div>
+            <div class="footer-col">
+                <h4>Розсилка</h4>
+                <p>Підпишіться на знижки та нові колекції:</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" class="form-control me-2" placeholder="Ваш Email" required aria-label="Введіть ваш Email">
+                    <button type="submit" class="btn btn-primary" aria-label="Підписатися"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 FurniCraft. Всі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal Drawer -->
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3 id="cartTitle"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Ваш Кошик</h3>
+                <button class="close-btn" id="closeCartBtn" aria-label="Закрити кошик">&times;</button>
+            </div>
+            <div class="cart-body" id="cartItems">
+                <!-- Cart items rendered by script.js -->
+            </div>
+            <div class="cart-footer">
+                <div class="summary-line">
+                    <span>Разом:</span>
+                    <strong id="cartTotal">0 грн</strong>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">Оформити замовлення</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-custom" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content-custom">
+            <button class="close-btn" id="closeModalBtn" aria-label="Закрити модальне вікно">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic Quick View Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-header-title text-white mb-0" id="checkoutModalLabel"><i class="fa-solid fa-bag-shopping me-2"></i> Оформлення замовлення</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="checkoutForm" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="checkoutName" class="form-label fw-semibold">Ім'я та Прізвище *</label>
+                                <input type="text" class="form-control" id="checkoutName" required placeholder="Іван Іванов">
+                                <div class="invalid-feedback">Будь ласка, введіть ваші ім'я та прізвище.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutPhone" class="form-label fw-semibold">Телефон *</label>
+                                <input type="tel" class="form-control" id="checkoutPhone" required placeholder="+380 97 123 45 67">
+                                <div class="invalid-feedback">Введіть коректний номер телефону.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutEmail" class="form-label fw-semibold">Email *</label>
+                                <input type="email" class="form-control" id="checkoutEmail" required placeholder="example@mail.com">
+                                <div class="invalid-feedback">Введіть коректну електронну пошту.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutCity" class="form-label fw-semibold">Місто доставки *</label>
+                                <input type="text" class="form-control" id="checkoutCity" required placeholder="Київ">
+                                <div class="invalid-feedback">Введіть місто доставки.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="checkoutAddress" class="form-label fw-semibold">Адреса / № відділення Нової Пошти *</label>
+                                <input type="text" class="form-control" id="checkoutAddress" required placeholder="Відділення №1 або вул. Хрещатик, 1">
+                                <div class="invalid-feedback">Вкажіть адресу або номер відділення.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutPayment" class="form-label fw-semibold">Спосіб оплати *</label>
+                                <select class="form-select" id="checkoutPayment" required>
+                                    <option value="" selected disabled>Оберіть спосіб оплати</option>
+                                    <option value="card">Оплата карткою онлайн (Visa/Mastercard)</option>
+                                    <option value="cod">Оплата при отриманні (Накладений платіж)</option>
+                                    <option value="privat">Оплата частинами / Рассрочка</option>
+                                </select>
+                                <div class="invalid-feedback">Будь ласка, оберіть спосіб оплати.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutDelivery" class="form-label fw-semibold">Служба доставки *</label>
+                                <select class="form-select" id="checkoutDelivery" required>
+                                    <option value="" selected disabled>Оберіть службу</option>
+                                    <option value="np">Нова Пошта (До відділення)</option>
+                                    <option value="courier">Кур'єрська доставка до дверей</option>
+                                    <option value="pickup">Самовивіз із салону</option>
+                                </select>
+                                <div class="invalid-feedback">Будь ласка, оберіть службу доставки.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="checkoutComment" class="form-label fw-semibold">Коментар до замовлення</label>
+                                <textarea class="form-control" id="checkoutComment" rows="2" placeholder="Додаткові побажання..."></textarea>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fs-5 fw-bold">Загальна сума:</span>
+                            <span class="fs-4 fw-bold text-success" id="checkoutTotalSum">0 грн</span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary py-2 fw-bold text-uppercase fs-6">Підтвердити Замовлення</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal Drawer -->
+    <div class="cart-drawer" id="wishlistDrawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+        <div class="cart-overlay" id="wishlistOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3 id="wishlistTitle"><i class="fa-solid fa-heart text-danger" aria-hidden="true"></i> Ваше Обране</h3>
+                <button class="close-btn" id="closeWishlistBtn" aria-label="Закрити обране">&times;</button>
+            </div>
+            <div class="cart-body" id="wishlistItems">
+                <!-- Wishlist items rendered dynamically by script.js -->
+            </div>
+            <div class="cart-footer">
+                <button class="btn btn-secondary btn-block" id="closeWishlistFooterBtn" style="color: var(--text-dark); border-color: var(--border-color);">Продовжити покупки</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
