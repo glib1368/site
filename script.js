@@ -278,6 +278,24 @@ function setupEventListeners() {
         e.target.reset();
     });
 
+    // Feedback Form Submission
+    const feedbackForm = document.getElementById('feedbackForm');
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!feedbackForm.checkValidity()) {
+                e.stopPropagation();
+                feedbackForm.classList.add('was-validated');
+                return;
+            }
+
+            feedbackForm.reset();
+            feedbackForm.classList.remove('was-validated');
+            showToast("Дякуємо за звернення! Ми зв'яжемося з вами найближчим часом.");
+        });
+    }
+
     // Checkout Flow Trigger
     document.getElementById('checkoutBtn').addEventListener('click', () => {
         if (cart.length === 0) {
