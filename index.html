@@ -33,7 +33,6 @@
                 <a href="#catalog">Каталог</a>
                 <a href="#advantages">Переваги</a>
                 <a href="#reviews">Відгуки</a>
-                <a href="#feedback">Зворотний зв'язок</a>
                 <a href="#contacts">Контакти</a>
             </nav>
             <div class="nav-actions">
@@ -168,71 +167,184 @@
         </div>
     </section>
 
-    <!-- Contact / Feedback Section -->
-    <section class="contact-section" id="feedback">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <span class="contact-tag">Зворотний зв'язок</span>
-                    <h2>Залишилися питання або потрібна консультація?</h2>
-                    <p>Наші дизайнери та менеджери допоможуть обрати ідеальні меблі, підберуть тканини або розрахують вартість індивідуального замовлення.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
-                            <div>
-                                <strong>Телефон</strong>
-                                <span>+380 (44) 123-45-67</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
-                            <div>
-                                <strong>Email</strong>
-                                <span>info@furnicraft.ua</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
-                            <div>
-                                <strong>Графік роботи</strong>
-                                <span>Пн–Нд: 09:00 – 20:00</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" aria-label="FurniCraft Головна">
+                    <i class="fa-solid fa-couch" aria-hidden="true"></i> Furni<span>Craft</span>
+                </a>
+                <p>Ваш надійний партнер у створенні затишного та стильного інтер'єру.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
                 </div>
+            </div>
+            <div class="footer-col">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="#catalog">Дивани</a></li>
+                    <li><a href="#catalog">Крісла</a></li>
+                    <li><a href="#catalog">Обідні столи</a></li>
+                    <li><a href="#catalog">Двоспальні ліжка</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> м. Київ, вул. Хрещатик, 24</p>
+                <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +380 (44) 123-45-67</p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> info@furnicraft.ua</p>
+            </div>
+            <div class="footer-col">
+                <h4>Розсилка</h4>
+                <p>Підпишіться на знижки та нові колекції:</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" class="form-control me-2" placeholder="Ваш Email" required aria-label="Введіть ваш Email">
+                    <button type="submit" class="btn btn-primary" aria-label="Підписатися"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 FurniCraft. Всі права захищено.</p>
+            </div>
+        </div>
+    </footer>
 
-                <div class="contact-form-card">
-                    <h3>Напишіть нам</h3>
-                    <form id="feedbackForm" novalidate>
-                        <div class="mb-3">
-                            <label for="feedbackName" class="form-label fw-semibold">Ваше ім'я *</label>
-                            <input type="text" class="form-control" id="feedbackName" placeholder="Олександр" required>
-                            <div class="invalid-feedback">Будь ласка, введіть ваше ім'я.</div>
-                        </div>
-                        <div class="row g-3 mb-3">
+    <!-- Shopping Cart Modal Drawer -->
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3 id="cartTitle"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Ваш Кошик</h3>
+                <button class="close-btn" id="closeCartBtn" aria-label="Закрити кошик">&times;</button>
+            </div>
+            <div class="cart-body" id="cartItems">
+                <!-- Cart items rendered by script.js -->
+            </div>
+            <div class="cart-footer">
+                <div class="summary-line">
+                    <span>Разом:</span>
+                    <strong id="cartTotal">0 грн</strong>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">Оформити замовлення</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-custom" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content-custom">
+            <button class="close-btn" id="closeModalBtn" aria-label="Закрити модальне вікно">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic Quick View Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-header-title text-white mb-0" id="checkoutModalLabel"><i class="fa-solid fa-bag-shopping me-2"></i> Оформлення замовлення</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="checkoutForm" novalidate>
+                        <div class="row g-3">
                             <div class="col-md-6">
-                                <label for="feedbackPhone" class="form-label fw-semibold">Телефон *</label>
-                                <input type="tel" class="form-control" id="feedbackPhone" placeholder="+380 97 123 45 67" required>
-                                <div class="invalid-feedback">Введіть номер телефону.</div>
+                                <label for="checkoutName" class="form-label fw-semibold">Ім'я та Прізвище *</label>
+                                <input type="text" class="form-control" id="checkoutName" required placeholder="Іван Іванов">
+                                <div class="invalid-feedback">Будь ласка, введіть ваші ім'я та прізвище.</div>
                             </div>
                             <div class="col-md-6">
-                                <label for="feedbackEmail" class="form-label fw-semibold">Email</label>
-                                <input type="email" class="form-control" id="feedbackEmail" placeholder="example@mail.com">
-                                <div class="invalid-feedback">Введіть коректний Email.</div>
+                                <label for="checkoutPhone" class="form-label fw-semibold">Телефон *</label>
+                                <input type="tel" class="form-control" id="checkoutPhone" required placeholder="+380 97 123 45 67">
+                                <div class="invalid-feedback">Введіть коректний номер телефону.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutEmail" class="form-label fw-semibold">Email *</label>
+                                <input type="email" class="form-control" id="checkoutEmail" required placeholder="example@mail.com">
+                                <div class="invalid-feedback">Введіть коректну електронну пошту.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutCity" class="form-label fw-semibold">Місто доставки *</label>
+                                <input type="text" class="form-control" id="checkoutCity" required placeholder="Київ">
+                                <div class="invalid-feedback">Введіть місто доставки.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="checkoutAddress" class="form-label fw-semibold">Адреса / № відділення Нової Пошти *</label>
+                                <input type="text" class="form-control" id="checkoutAddress" required placeholder="Відділення №1 або вул. Хрещатик, 1">
+                                <div class="invalid-feedback">Вкажіть адресу або номер відділення.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutPayment" class="form-label fw-semibold">Спосіб оплати *</label>
+                                <select class="form-select" id="checkoutPayment" required>
+                                    <option value="" selected disabled>Оберіть спосіб оплати</option>
+                                    <option value="card">Оплата карткою онлайн (Visa/Mastercard)</option>
+                                    <option value="cod">Оплата при отриманні (Накладений платіж)</option>
+                                    <option value="privat">Оплата частинами / Рассрочка</option>
+                                </select>
+                                <div class="invalid-feedback">Будь ласка, оберіть спосіб оплати.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="checkoutDelivery" class="form-label fw-semibold">Служба доставки *</label>
+                                <select class="form-select" id="checkoutDelivery" required>
+                                    <option value="" selected disabled>Оберіть службу</option>
+                                    <option value="np">Нова Пошта (До відділення)</option>
+                                    <option value="courier">Кур'єрська доставка до дверей</option>
+                                    <option value="pickup">Самовивіз із салону</option>
+                                </select>
+                                <div class="invalid-feedback">Будь ласка, оберіть службу доставки.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="checkoutComment" class="form-label fw-semibold">Коментар до замовлення</label>
+                                <textarea class="form-control" id="checkoutComment" rows="2" placeholder="Додаткові побажання..."></textarea>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="feedbackTopic" class="form-label fw-semibold">Тема звернення</label>
-                            <select class="form-select" id="feedbackTopic">
-                                <option value="consultation" selected>Консультація щодо товару</option>
-                                <option value="custom">Індивідуальне виготовлення</option>
-                                <option value="delivery">Доставка та оплата</option>
-                                <option value="other">Інше питання</option>
-                            </select>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fs-5 fw-bold">Загальна сума:</span>
+                            <span class="fs-4 fw-bold text-success" id="checkoutTotalSum">0 грн</span>
                         </div>
-                        <div class="mb-4">
-                            <label for="feedbackMessage" class="form-label fw-semibold">Повідомлення *</label>
-                            <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Опишіть ваше питання або побажання..." required></textarea>
-                            <div class="invalid-feedback">Будь ласка, напишіть повідомлення.</div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary py-2 fw-bold text-uppercase fs-6">Підтвердити Замовлення</button>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal Drawer -->
+    <div class="cart-drawer" id="wishlistDrawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+        <div class="cart-overlay" id="wishlistOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3 id="wishlistTitle"><i class="fa-solid fa-heart text-danger" aria-hidden="true"></i> Ваше Обране</h3>
+                <button class="close-btn" id="closeWishlistBtn" aria-label="Закрити обране">&times;</button>
+            </div>
+            <div class="cart-body" id="wishlistItems">
+                <!-- Wishlist items rendered dynamically by script.js -->
+            </div>
+            <div class="cart-footer">
+                <button class="btn btn-secondary btn-block" id="closeWishlistFooterBtn" style="color: var(--text-dark); border-color: var(--border-color);">Продовжити покупки</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
