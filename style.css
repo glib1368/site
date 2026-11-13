@@ -529,6 +529,102 @@ img {
     color: var(--text-muted);
 }
 
+/* Contact / Feedback Section */
+.contact-section {
+    background-color: var(--surface-color);
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-tag {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.contact-info h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+
+.contact-info > p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.contact-item strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.contact-item span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.contact-form-card {
+    background-color: var(--bg-light);
+    padding: 36px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.contact-form-card h3 {
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+}
+
+.contact-form-card .form-control,
+.contact-form-card .form-select {
+    border-color: var(--border-color);
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.contact-form-card .form-control:focus,
+.contact-form-card .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(140, 109, 83, 0.15);
+}
+
 /* Footer */
 .footer {
     background-color: #1e1e1e;
@@ -784,6 +880,17 @@ img {
 }
 
 /* Responsive Styles */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contact-form-card {
+        padding: 24px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
